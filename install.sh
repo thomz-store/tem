@@ -66,17 +66,14 @@ check_token() {
   echo -e "${BLUE}[+]                 LICENSY FOXSTORE                [+]${NC}"
   echo -e "${BLUE}[+] =============================================== [+]${NC}"
   echo -e "                                                       "
-  fox=$(echo -e "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x67\x65\x74\x70\x61\x6E\x74\x72\x79\x2E\x63\x6C\x6F\x75\x64\x2F\x61\x70\x69\x76\x31\x2F\x70\x61\x6E\x74\x72\x79\x2F\x31\x31\x64\x34\x65\x33\x34\x64\x2D\x30\x39\x33\x34\x2D\x34\x39\x35\x38\x2D\x39\x64\x30\x36\x2D\x35\x32\x34\x31\x39\x65\x66\x38\x30\x61\x65\x61\x2F\x62\x61\x73\x6B\x65\x74\x2F\x54\x68\x65\x6D\x61\x61\x63\x63\x65\x73\x73")
-  foxx=$(curl -s "$fox" | jq -r .token)
-
-  echo -e "${YELLOW}MASUKAN AKSES TOKEN :${NC}"
+  echo -e "${RED}TOKEN :${NC}"
   read -r USER_TOKEN
 
-  if [ "$USER_TOKEN" != "$foxx" ]; then
-    echo -e "${RED}TOKEN SALAH, KELUAR DARI SCRIPT.${NC}"
-    exit 1
+  if [ "$USER_TOKEN" = "thomvelz" ]; then
+    echo -e "${GREEN}WOKEH COMPLETE${NC}}"
   else
-    echo -e "${GREEN}AKSES BERHASIL${NC}"
+    echo -e "${GREEN}GAGAL COBA LAGI${NC}"
+    exit 1
   fi
   clear
 }
